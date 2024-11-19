@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('../Model/verifica_login.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,10 +10,10 @@
     <link rel="shortcut icon" href="../img/pokeball.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Login</title>
+    <title>Document</title>
 </head>
 <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="../index.php">Home</a>
@@ -17,13 +21,8 @@
                 <a class="nav-item nav-link active" href="cadastro.php">Cadastro</a>
             </div>
         </div>
-    </nav> -->
-    <form action="../Control/ControleLogin.php" method="post">
-        <H1>Login</H1>
-        <p><input type="text" name="email" id="email" placeholder="Email"></p>
-        <p><input type="password" name="senha" id="senha" placeholder="Password"></p>
-        <p><input type="submit" value="login" id="login" name="login"></p>
-    </form>
-    
+    </nav>
+    <h2>Olá, <?php echo $_SESSION['email'];?></h2>
+    <h2><a href="Model/logout.php">Sair</a></h2>
 </body>
 </html>
