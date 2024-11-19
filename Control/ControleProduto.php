@@ -1,15 +1,19 @@
 <?php 
+session_start();
 require_once '../Model/ClassProdutos.php';
 require_once '../Model/DAO/classProdutosDAO.php';
 
 $id = @$_POST['idex'];
+$idUsuario = @$_SESSION['idUsuario'];
 $preco = @$_POST['preco'];
 $nomeProduto = @$_POST['nomeProduto'];
 $quantidade = @$_POST['quantidade'];
 $acao = $_GET['ACAO'];
 
+
 $novoProduto = new ClassProdutos();
 $novoProduto->setIdProduto($id);
+$novoProduto->setIdUser($idUsuario);
 $novoProduto->setPreco($preco);
 $novoProduto->setNomeProduto($nomeProduto);
 $novoProduto->setQuantidade($quantidade);

@@ -46,7 +46,7 @@ class ClassProdutosDAO{
     {
         try {
             $pdo = conexao::getInstance();
-            $sql = "SELECT * FROM produto";
+            $sql = "SELECT usuarios.nome, produto.idProduto, produto.nomeProduto, produto.preco, produto.quantidade FROM usuarios inner join produto on produto.idUser = usuarios.idUsuario;";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             $Produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -36,11 +36,11 @@
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-grey">Formulario de atualização de Usuario</h3>
                     <div class="box">
-                        <form method="post" action=".../Control/ControleUsuario.php?ACAO=alterarUsuario" >
+                        <form method="post" action="../Control/ControleUsuario.php?ACAO=alterarUsuario" >
                             <input type="hidden" name="idex" value="<?php echo $novoUsuario->getIdUsuario(); ?>">
                             <div class="field">
                                 <div class="control">
-                                    <input name="nomeProduto" name="text" class="input is-large" placeholder="Seu nome" autofocus="" value="<?php echo $novoUsuario->getNome(); ?>" >
+                                    <input name="nome" class="input is-large" placeholder="Seu nome" autofocus="" value="<?php echo $novoUsuario->getNome(); ?>" >
                                 </div>
                             </div>
                             <div class="field">

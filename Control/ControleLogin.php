@@ -14,6 +14,7 @@ $query = "select email from usuarios where email = '{$email}' and senha = '{$sen
 
 $result = mysqli_query($conexao, $query);
 
+
 $row = mysqli_num_rows($result);
 
 if($row == 1) {

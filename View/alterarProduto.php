@@ -36,7 +36,7 @@
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-grey">Formulario de atualização de Usuario</h3>
                     <div class="box">
-                        <form method="post" action=".../Control/ControleProduto.php?ACAO=alterarProdutos" >
+                        <form method="post" action="../Control/ControleProduto.php?ACAO=alterarProdutos" >
                             <input type="hidden" name="idex" value="<?php echo $novoProduto->getIdProduto(); ?>">
                             <div class="field">
                                 <div class="control">

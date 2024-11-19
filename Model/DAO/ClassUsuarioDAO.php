@@ -61,11 +61,12 @@ class ClassUsuarioDAO{
     {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE usuarios SET nome=?, email=? WHERE idUsuario=? ";
+            $sql = "UPDATE usuarios SET nome=?, email=?,senha =? WHERE idUsuario=? ";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $alterarUsuario->getNome());
             $stmt->bindValue(2, $alterarUsuario->getEmail());
-            $stmt->bindValue(3, $alterarUsuario->getIdUsuario());
+            $stmt->bindValue(3, $alterarUsuario->getSenha());
+            $stmt->bindValue(4, $alterarUsuario->getIdUsuario());
             $stmt->execute();
             return $stmt->rowCount();
         } catch (PDOException $ex) {
@@ -77,13 +78,13 @@ class ClassUsuarioDAO{
     {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "DELETE FROM usuarios WHERE idUsuario  =:idUsuario ";
+            $sql = "DELETE FROM usuarios WHERE idUsuario  =:id ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':idUsuario', $idUsuario );
+            $stmt->bindValue(':id', $idUsuario );
             $stmt->execute();
             return TRUE;
         } catch (PDOException $exc) {
-            echo $ex->getMessage();
+            echo $exc->getMessage();
         }
     }
 }

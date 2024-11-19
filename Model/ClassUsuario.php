@@ -1,4 +1,4 @@
-<?php 
+<?php  
 class ClassUsuario{
     private $idUsuario;
     private $email;
@@ -45,5 +45,7 @@ class ClassUsuario{
     {
         $this->senha = $senha;
     }
+
+    
 }
 ?>

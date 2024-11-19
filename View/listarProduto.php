@@ -22,6 +22,7 @@ function checkDelete(){
     echo "<div id='direita'>";
     echo "<table class='table'>";
     echo "  <tr>";
+    echo "      <th scope='col'><p align='center'>Registrador</p></th> ";
     echo "      <th scope='col'><p align='center'>Produto</p></th> ";
     echo "      <th scope='col'><p align='center'>Quantidade</p></th>";
     echo "      <th scope='col'><p align='center'>Preco</p></th>";
@@ -31,6 +32,7 @@ function checkDelete(){
 
     foreach ($us as $us) {
         echo "<tr>";
+        echo "<td scope='col'><p align='center'>" . $us['nome'] . "</p></td>";
         echo "<td scope='col'><p align='center'>" . $us['nomeProduto'] . "</p></td>";
         echo "<td scope='col'><p align='center'>" . $us['quantidade'] . "</p></td>";
         echo "<td scope='col'><p align='center'>" . $us['preco'] . "</p></td>";

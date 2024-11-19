@@ -20,10 +20,11 @@
         </div>
     </nav>
     <!-- ................. -->
-    <?php
+    <?php session_start();
+    echo $_SESSION['idUsua'];
     include 'listarProduto.php'; 
     echo "<br><br>";
-    include 'cadastrarProduto.php';
+    include 'cadastrarProduto.php';   
     ?>
 </body>
 </html>
