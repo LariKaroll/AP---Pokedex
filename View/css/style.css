@@ -1,0 +1,9 @@
+nav .collapse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    font-size: 20px;
+}
