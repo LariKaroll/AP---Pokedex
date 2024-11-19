@@ -2,15 +2,18 @@
 session_start();
 include('../Model/DAO/conexaoLogin.php');
 
-if(empty($_POST['email']) || empty($_POST['senha'])) {
+if(empty($_POST['nome']) || empty($_POST['senha'])) {
 	header('Location:../index.php');
 	exit();
 }
 
-$email = mysqli_real_escape_string($conexao, $_POST['email']);
+$nome = mysqli_real_escape_string($conexao, $_POST['nome']);
 $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
-$query = "select email from usuarios where email = '{$email}' and senha = '{$senha}'";
+$NomeUsuario = $_POST['nome'];
+$_SESSION['NomeUsuario'] = $NomeUsuario;
+
+$query = "select nome from usuarios where nome = '{$nome}' and senha = '{$senha}'";
 
 $result = mysqli_query($conexao, $query);
 
@@ -18,7 +21,7 @@ $result = mysqli_query($conexao, $query);
 $row = mysqli_num_rows($result);
 
 if($row == 1) {
-	$_SESSION['email'] = $email;
+	$_SESSION['nome'] = $nome;
 	header('Location:../view/Usuario.php?&MSG=login realizado com sucesso!');
 	exit();
 } else {

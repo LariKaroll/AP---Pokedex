@@ -21,7 +21,7 @@
     </nav>
     <!-- ................. -->
     <?php session_start();
-    echo $_SESSION['idUsua'];
+    echo $_SESSION['NomeUsuario'];
     include 'listarProduto.php'; 
     echo "<br><br>";
     include 'cadastrarProduto.php';   

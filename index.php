@@ -21,7 +21,7 @@
                         <form action="Control/ControleLogin.php" method="POST">
                             <div class="field">
                                 <div class="control">
-                                    <input type="email" name="email" class="input is-large" placeholder="Seu email" autofocus="">
+                                    <input type="text" name="nome" class="input is-large" placeholder="Seu nome" autofocus="">
                                 </div>
                             </div>
 

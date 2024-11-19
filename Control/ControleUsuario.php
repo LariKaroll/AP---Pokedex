@@ -1,5 +1,4 @@
 <?php 
-session_start();
 require_once '../Model/ClassUsuario.php';
 require_once '../Model/DAO/ClassUsuarioDAO.php';
 
@@ -8,8 +7,6 @@ $email = @$_POST['email'];
 $nome = @$_POST['nome'];
 $senha = @$_POST['senha'];
 $acao = $_GET['ACAO'];
-
-$_SESSION['idUsuario'] = $idUsuario;
 
 $novoUsuario = new ClassUsuario();
 $novoUsuario->setIdUsuario($idUsuario);

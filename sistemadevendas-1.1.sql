@@ -1,21 +1,12 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 19/11/2024 às 15:27
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+create database sistemadevendas;
+use sistemadevendas;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+
 
 --
 -- Banco de dados: `sistemadevendas`
@@ -28,11 +19,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `produto` (
-  `idProduto` int(11) NOT NULL,
+  `idProduto` int(11) NOT NULL auto_increment,
   `nomeProduto` varchar(40) NOT NULL,
   `preco` float NOT NULL,
   `quantidade` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
+  `nomeUsuario` varchar(40) NOT NULL,
+  PRIMARY KEY (idProduto),
+  foreign key (`nomeUsuario`) references `usuarios`(`idUsuario`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `usuario` (
+  `idUsuario` int(11) NOT NULL auto_increment primary key,
+  `email` varchar(30) DEFAULT NULL,
+  `nome` varchar(30) DEFAULT NULL,
+  `senha` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -53,12 +53,7 @@ INSERT INTO `produto` (`idProduto`, `nomeProduto`, `preco`, `quantidade`, `idUse
 -- Estrutura para tabela `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `idUsuario` int(11) NOT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  `nome` varchar(30) DEFAULT NULL,
-  `senha` varchar(40) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Despejando dados para a tabela `usuarios`
@@ -95,19 +90,7 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
-ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
---
--- Restrições para tabelas despejadas
---
-
---
--- Restrições para tabelas `produto`
---
-ALTER TABLE `produto`
-  ADD CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`idUsuario`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
