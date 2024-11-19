@@ -2,6 +2,6 @@
 define('HOST', '127.0.0.1');
 define('USUARIO', 'root');
 define('SENHA', '');
-define('DB', 'pokedexphp');
+define('DB', 'sistemadevendas');
 
 $conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível conectar');

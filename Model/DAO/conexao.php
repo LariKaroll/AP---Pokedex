@@ -4,7 +4,7 @@ abstract class conexao
 {
     public static function getInstance()
     {
-        $dsn = 'mysql:host=localhost;dbname=pokedexphp';
+        $dsn = 'mysql:host=localhost;dbname=sistemadevendas';
         $user = 'root';
         $pass = '';
         try {
