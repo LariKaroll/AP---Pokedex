@@ -18,7 +18,7 @@ $row = mysqli_num_rows($result);
 
 if($row == 1) {
 	$_SESSION['email'] = $email;
-	header('Location:../view/logado.php?&MSG=login realizado com sucesso!');
+	header('Location:../view/Usuario.php?&MSG=login realizado com sucesso!');
 	exit();
 } else {
 	$_SESSION['nao_autenticado'] = true;

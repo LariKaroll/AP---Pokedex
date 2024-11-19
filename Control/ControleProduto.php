@@ -40,7 +40,7 @@ switch($acao){
     }
 
     case 'alterarProdutos':
-         $Produtos = $classProdutosDAO->alterarProdutos($novoProduto);
+         $Produtos = $classProdutosDAO->alterarProduto($novoProduto);
          if($Produtos == 1){
              header('Location:../view/Produtos.php?&MSG= Alteracao feita com sucesso!');
          } else {

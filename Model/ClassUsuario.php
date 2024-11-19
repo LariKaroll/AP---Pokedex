@@ -26,7 +26,7 @@ class ClassUsuario{
     }
 
 
-    function setidUsuario($idUsuario)
+    function setIdUsuario($idUsuario)
     {
         $this->idUsuario = $idUsuario;
     }

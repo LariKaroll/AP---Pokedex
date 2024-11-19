@@ -25,7 +25,7 @@ class ClassProdutosDAO{
             $pdo = conexao::getInstance();
             $sql = "SELECT idProduto, nomeProduto, preco, quantidade FROM produto WHERE idProduto =:id LIMIT 1";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':id', $idUsuario);
+            $stmt->bindValue(':id', $idProduto);
 
             $stmt->execute();
             $produtoAssoc = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -57,7 +57,7 @@ class ClassProdutosDAO{
     }
 
 
-    public function alterarProdutos(ClassProdutos $alterarProdutos)
+    public function alterarProduto(ClassProdutos $alterarProdutos)
     {
         try {
             $pdo = Conexao::getInstance();

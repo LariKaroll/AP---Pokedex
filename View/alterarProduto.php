@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="Usuario.php">Usuario</a>
+                <a class="nav-item nav-link active" href="Usuario.php">Usuario</a>
                 <a class="nav-item nav-link active" href="Produtos.php">Produtos</a>
             </div>
             <a class="nav-item nav-link" href="../Model/logout.php"><img src="../img/Out.png" alt="Out"></a>
@@ -37,7 +37,7 @@
                     <h3 class="title has-text-grey">Formulario de atualização de Usuario</h3>
                     <div class="box">
                         <form method="post" action=".../Control/ControleProduto.php?ACAO=alterarProdutos" >
-                            <input type="hidden" name="idex" value="<?php echo $novoProduto->getIdUsuario(); ?>">
+                            <input type="hidden" name="idex" value="<?php echo $novoProduto->getIdProduto(); ?>">
                             <div class="field">
                                 <div class="control">
                                     <input name="nomeProduto" name="text" class="input is-large" placeholder="Nome" autofocus="" value="<?php echo $novoProduto->getNomeProduto(); ?>" >

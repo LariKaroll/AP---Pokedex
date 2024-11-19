@@ -23,16 +23,17 @@ class ClassUsuarioDAO{
         try {
             $usuarios = new ClassUsuario();
             $pdo = Conexao::getInstance();
-            $sql = "SELECT id, email, nome FROM usuarios WHERE idUsuario  =:idUsuario LIMIT 1";
+            $sql = "SELECT idUsuario, email, nome, senha FROM usuarios WHERE idUsuario  =:id LIMIT 1";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':idUsuario', $idUsuario);
+            $stmt->bindValue(':id', $idUsuario);
 
             $stmt->execute();
             $usuarioAssoc = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $usuarios->setidUsuario($usuarioAssoc['idUsuario']);
-            $usuarios->setemail($usuarioAssoc['email']);
-            $usuarios->setnome($usuarioAssoc['nome']);
+            $usuarios->setIdUsuario($usuarioAssoc['idUsuario']);
+            $usuarios->setEmail($usuarioAssoc['email']);
+            $usuarios->setNome($usuarioAssoc['nome']);
+            $usuarios->setSenha($usuarioAssoc['senha']);
 
             return $usuarios;
         } catch (PDOException $ex) {

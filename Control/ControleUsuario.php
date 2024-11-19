@@ -9,10 +9,10 @@ $senha = @$_POST['senha'];
 $acao = $_GET['ACAO'];
 
 $novoUsuario = new ClassUsuario();
-$novoUsuario->setidUsuario($id);
-$novoUsuario->setemail($email);
-$novoUsuario->setnome($nome);
-$novoUsuario->setsenha($senha);
+$novoUsuario->setIdUsuario($id);
+$novoUsuario->setEmail($email);
+$novoUsuario->setNome($nome);
+$novoUsuario->setSenha($senha);
 
 $classUsuarioDAO = new ClassUsuarioDAO();
 
@@ -20,9 +20,9 @@ switch($acao){
     case "cadastrarUsuario":
         $usuario = $classUsuarioDAO->cadastrar($novoUsuario);
 	    if($usuario >= 1){
-            header('Location:../view/Usuario.php?&MSG= Cadastro realizado com sucesso!');
+            header('Location:../index.php?&MSG= Cadastro realizado com sucesso!');
         } else {
-            header('Location:../view/Usuario.php?&MSG= Não foi possivel realizar o cadastro!');
+            header('Location:../index.php?&MSG= Não foi possivel realizar o cadastro!');
         }
         break;
 
