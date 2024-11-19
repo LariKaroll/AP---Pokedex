@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2024 at 07:52 AM
+-- Generation Time: Nov 19, 2024 at 10:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -31,20 +31,21 @@ CREATE TABLE `produto` (
   `idProduto` int(11) NOT NULL,
   `nomeProduto` varchar(40) NOT NULL,
   `preco` float NOT NULL,
-  `quantidade` int(11) NOT NULL
+  `quantidade` int(11) NOT NULL,
+  `idUser` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `produto`
 --
 
-INSERT INTO `produto` (`idProduto`, `nomeProduto`, `preco`, `quantidade`) VALUES
-(1, 'neca', 1.99, 2),
-(3, 'Melao', 4.99, 40),
-(4, 'Melancia', 10.5, 60),
-(5, 'Carvao', 20.99, 5),
-(6, 'Arroz', 19.99, 45),
-(7, 'Aveia', 41, 30);
+INSERT INTO `produto` (`idProduto`, `nomeProduto`, `preco`, `quantidade`, `idUser`) VALUES
+(14, 'neca', 1.99, 2, 12),
+(15, 'Melao', 4.99, 40, 5),
+(16, 'Melancia', 10.5, 60, 10),
+(17, 'Carva', 20.99, 5, 5),
+(18, 'Arroz', 19.99, 45, 5),
+(19, 'Aveia', 41, 30, 10);
 
 -- --------------------------------------------------------
 
@@ -64,11 +65,13 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `email`, `nome`, `senha`) VALUES
-(5, 'beb@gmail.com', 'Betani', '32131321'),
-(6, 'GV@gmail.com', 'Giova', '1345'),
+(1, 'admin@admin', 'admin', 'admin'),
+(5, 'Betani@gmail.com', 'Betanie', '123'),
+(6, 'Gio@gmail.com', 'Giovanna', '1345'),
 (7, 'admin@admin', 'admin', 'admin'),
 (10, 'zezin@gmail.com', 'Ze', '2020'),
-(12, 'fe@gmail.com', 'fefe', 'fezinha123');
+(12, 'Fernando@gmail.com', 'Fernando', 'fezinha123'),
+(13, 'jose@gmail.com', 'josezinho', '123');
 
 --
 -- Indexes for dumped tables
@@ -78,7 +81,8 @@ INSERT INTO `usuarios` (`idUsuario`, `email`, `nome`, `senha`) VALUES
 -- Indexes for table `produto`
 --
 ALTER TABLE `produto`
-  ADD PRIMARY KEY (`idProduto`);
+  ADD PRIMARY KEY (`idProduto`),
+  ADD KEY `idUser` (`idUser`);
 
 --
 -- Indexes for table `usuarios`
@@ -94,13 +98,23 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `produto`
+--
+ALTER TABLE `produto`
+  ADD CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`idUsuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
