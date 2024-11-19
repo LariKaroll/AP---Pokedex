@@ -1,9 +1,5 @@
-nav .collapse {
+.navbar-nav{
     display: flex;
     justify-content: space-between;
-}
-
-
-nav a {
-    font-size: 20px;
+    align-items: center;
 }

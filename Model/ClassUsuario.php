@@ -5,22 +5,22 @@ class ClassUsuario{
     private $nome;
     private $senha;
 
-    function getidUsuario()
+    function getIdUsuario()
     {
         return $this->idUsuario;
     }
 
-    function getemail()
+    function getEmail()
     {
         return $this->email;
     }
 
-    function getnome()
+    function getNome()
     {
         return $this->nome;
     }
 
-    function getsenha()
+    function getSenha()
     {
         return $this->senha;
     }
@@ -31,17 +31,17 @@ class ClassUsuario{
         $this->idUsuario = $idUsuario;
     }
 
-    function setemail($email)
+    function setEmail($email)
     {
         $this->email = $email;
     }
 
-    function setnome($nome)
+    function setNome($nome)
     {
         $this->nome = $nome;
     }
 
-    function setsenha($senha)
+    function setSenha($senha)
     {
         $this->senha = $senha;
     }

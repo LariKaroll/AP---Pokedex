@@ -59,12 +59,12 @@ class ClassUsuarioDAO{
     public function alterarUsuario(ClassUsuario $alterarUsuario)
     {
         try {
-            $pdo = conexao::getInstance();
-            $sql = "UPDATE usuarios SET email=?, nome=? WHERE idUsuario  =? ";
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE usuarios SET nome=?, email=? WHERE idUsuario=? ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $alterarUsuario->getemail());
-            $stmt->bindValue(2, $alterarUsuario->getnome());
-            $stmt->bindValue(3, $alterarUsuario->getidUsuario());
+            $stmt->bindValue(1, $alterarUsuario->getNome());
+            $stmt->bindValue(2, $alterarUsuario->getEmail());
+            $stmt->bindValue(3, $alterarUsuario->getIdUsuario());
             $stmt->execute();
             return $stmt->rowCount();
         } catch (PDOException $ex) {

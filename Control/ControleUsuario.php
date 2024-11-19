@@ -20,18 +20,18 @@ switch($acao){
     case "cadastrarUsuario":
         $usuario = $classUsuarioDAO->cadastrar($novoUsuario);
 	    if($usuario >= 1){
-            header('Location:../index.php?&MSG= Cadastro realizado com sucesso!');
+            header('Location:../view/Usuario.php?&MSG= Cadastro realizado com sucesso!');
         } else {
-            header('Location:../index.php?&MSG= Não foi possivel realizar o cadastro!');
+            header('Location:../view/Usuario.php?&MSG= Não foi possivel realizar o cadastro!');
         }
         break;
 
     case "LoginUsuario":
         $usuario = $classUsuarioDAO->login($novoUsuario);
 	    if($usuario >= 1){
-            header('Location:../index.php?&MSG= Cadastro realizado com sucesso!');
+            header('Location:../view/Usuario.php?&MSG= Cadastro realizado com sucesso!');
         } else {
-            header('Location:../index.php?&MSG= Não foi possivel realizar o cadastro!');
+            header('Location:../view/Usuario.php?&MSG= Não foi possivel realizar o cadastro!');
         }
         break;
 
@@ -41,19 +41,19 @@ switch($acao){
             $ClassUsuarioDAO = new ClassUsuarioDAO();
             $us = $ClassUsuarioDAO->excluirUsuario($idUsuario);
             if ($us == TRUE) {
-                header('Location:../view/Usuario.php&MSG= Produto foi excluido com sucesso!');
+                header('Location:../view/Usuario.php?&MSG= Produto foi excluido com sucesso!');
             } else {
-                header('Location:../view/Usuario.php&MSG=Não foi possivel realizar a exclusão do Usurio!');
+                header('Location:../view/Usuario.php?&MSG=Não foi possivel realizar a exclusão do Usurio!');
             }
         }
     }
 
-    case 'alterarUsuarios':   
-         $usuario = $ClassUsuarioDAO->alterarUsuario($novoUsuario);
+    case 'alterarUsuario':
+         $usuario = $classUsuarioDAO->alterarUsuario($novoUsuario);
          if($usuario == 1){
-            header('Location:../view/Usuario.php?&MSG= Cadastro atualizado com sucesso!');
+             header('Location:../view/Usuario.php?&MSG= Cadastro atualizado com sucesso!');
          } else {
-            header('Location:../view/Usuario.php?&MSG= Não foi possivel realizar a atualização!');
+             header('Location:../view/Usuario.php?&MSG= Não foi possivel realizar a atualização!');
          }
   
         break;

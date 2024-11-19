@@ -13,10 +13,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="logado.php">Home</a>
-                <a class="nav-item nav-link" href="Usuario.php">Usuario</a>
-                <a class="nav-item nav-link active" href="Produtos.php">Produtos</a>
+                <a class="nav-item nav-link active" href="Usuario.php">Usuario</a>
+                <a class="nav-item nav-link active" href="Produtos.php">Produtos</a>      
             </div>
+            <a class="nav-item nav-link" href="../Model/logout.php"><img src="../img/Out.png" alt="Out"></a>
         </div>
     </nav>
     <!-- ................. -->
